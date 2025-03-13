@@ -5,6 +5,10 @@ import { COLORS, WEIGHTS } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 
+const StyledLogo = styled(Logo)`
+  width: 0;
+`;
+
 const Header = () => {
   // Our site features two visual headers, but they should be
   // grouped semantically as a single header.
@@ -12,7 +16,7 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <Logo />
+        <StyledLogo />
         <Nav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -27,11 +31,19 @@ const Header = () => {
 };
 
 const MainHeader = styled.div`
+    display: flex;
+    height: ${72 / 16}rem;
+    align-items: center;
   padding: 0 32px;
   border-bottom: 1px solid ${COLORS.gray[300]};
 `;
 
-const Nav = styled.nav``;
+const Nav = styled.nav`
+    display: flex;
+    flex: 1;
+    gap: 48px;
+    justify-content: center;
+`;
 
 const NavLink = styled.a`
   font-size: 1.125rem;
